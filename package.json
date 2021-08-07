@@ -1,0 +1,41 @@
+{
+  "name": "poe-tools",
+  "version": "1.0.0",
+  "description": "Tools for Path of Exile",
+  "main": "index.js",
+  "scripts": {
+    "prettier-check": "prettier -c \"**/*.js\"",
+    "prettier-fix": "prettier --write \"**/*.js\"",
+    "make-filters": "node ./make-filters.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nick-ng/poe-tools.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nick-ng/poe-tools/issues"
+  },
+  "homepage": "https://github.com/nick-ng/poe-tools#readme",
+  "dependencies": {
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "husky": "^7.0.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
