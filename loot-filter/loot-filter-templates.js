@@ -50,7 +50,7 @@ const tiers = {
 `,
   x1: `
     SetBorderColor 150 150 150
-    SetFontSize 20
+    SetFontSize 25
 `,
 };
 

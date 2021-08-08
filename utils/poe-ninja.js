@@ -141,6 +141,8 @@ const fetchPoeNinja = async (minChaos = 2) => {
         " ",
         "_"
       )}`,
+      source: null,
+      cannotDrop: false,
     }));
   const sortedUniques = sortTiers(flatUniques, minChaos);
 

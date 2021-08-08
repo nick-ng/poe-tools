@@ -1,7 +1,7 @@
 const { chunk, uniq } = require("lodash");
 const { lootTiersOrder, uniquesTemplate } = require("./loot-filter-templates");
 
-const makeUniquesFilter = (uniques) => {
+const makeCurrencyFilter = (uniques) => {
   const handledUniqueBaseTypes = [];
   const uniquesFilter = `${lootTiersOrder.reduce((prev, tier) => {
     const value = uniques[tier];
@@ -33,5 +33,5 @@ Hide
 };
 
 module.exports = {
-  makeUniquesFilter,
+  makeCurrencyFilter,
 };

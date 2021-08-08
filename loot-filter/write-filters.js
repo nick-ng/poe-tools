@@ -26,9 +26,13 @@ const writeFilters = (filter, minChaos, extraPath) => {
         __dirname,
         "..",
         "output-filters",
-        `zz_${filterName}_plus_${minChaos}c_${date
+        `zz_${date
           .toISOString()
-          .slice(0, 13)}.filter`
+          .slice(0, 13)
+          .replaceAll(
+            "-",
+            ""
+          )}_${minChaos}c_${filterName}_plus.filter`.toLowerCase()
       ),
       `${filter}${baseFilter}`
     );
