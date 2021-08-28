@@ -63,6 +63,7 @@ const poeNinjaBlackList = [
   // heist
   "crest-of-desire-fluted-bascinet",
   "expeditions-end-sentinel-jacket",
+  "the-fulcrum-ezomyte-staff",
 
   // incursion chest
   "mask-of-the-spirit-drinker-magistrate-crown",

@@ -1,1 +1,1 @@
-npm run make-filters
+npm start

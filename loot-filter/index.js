@@ -1,4 +1,5 @@
 const { writeFilters } = require("./write-filters");
+const { writeSummary } = require("./write-summary");
 const {
   lootTiersOrder,
   sixLinkTemplate,
@@ -9,6 +10,8 @@ const { makeUniquesFilter } = require("./uniques-filter");
 
 const makeLootFilter = (sortedItems, minChaos = 2, extraPath = null) => {
   const { uniques } = sortedItems;
+
+  writeSummary({ uniques });
 
   const baseFilter = `${sixLinkTemplate()}${uniquesOverrideTemplate()}`;
   const uniquesFilter = makeUniquesFilter(uniques);

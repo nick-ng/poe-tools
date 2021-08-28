@@ -6,7 +6,7 @@
   "scripts": {
     "prettier-check": "prettier -c \"**/*.js\"",
     "prettier-fix": "prettier --write \"**/*.js\"",
-    "make-filters": "node ./make-filters.js"
+    "start": "node ./make-filters.js"
   },
   "repository": {
     "type": "git",
