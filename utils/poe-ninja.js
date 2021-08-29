@@ -127,8 +127,8 @@ const fs = require("fs");
 const fetchPoeNinja = async (minChaos = 2) => {
   const league = await getLeague();
 
-  // const currency = await fetchCurrency(league);
-  // const sortedCurrency = sortTiersCurrency(currency, minChaos);
+  const currency = await fetchCurrency(league);
+  const sortedCurrency = sortTiersCurrency(currency, minChaos);
 
   // fs.writeFileSync("currency.json", JSON.stringify(sortedCurrency, null, "  "));
 
@@ -172,7 +172,7 @@ const fetchPoeNinja = async (minChaos = 2) => {
     JSON.stringify(sortedUniques, null, "  ")
   );
 
-  return { uniques: sortedUniques };
+  return { uniques: sortedUniques, currency: sortedCurrency };
 };
 
 module.exports = {
