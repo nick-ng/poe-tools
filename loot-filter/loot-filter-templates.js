@@ -176,9 +176,20 @@ Show
     SetTextColor 255 255 255${tiers[tier]}`;
 };
 
+const currencyTemplate = (baseTypes, tier) => {
+  const baseTypeString = baseTypes.map((baseType) => `"${baseType}"`).join(" ");
+  return `
+# Uniques - ${tier} (${new Date().toISOString().slice(0, 16)})
+Show
+    BaseType ${baseTypeString}
+    SetBackgroundColor 77 255 131
+    SetTextColor 0 0 0${tiers[tier]}`;
+};
+
 module.exports = {
   lootTiersOrder,
   sixLinkTemplate,
   uniquesOverrideTemplate,
   uniquesTemplate,
+  currencyTemplate,
 };

@@ -68,7 +68,19 @@ const fetchCurrency = async (league) => {
   if (res.status === 200) {
     const resJson = await res.json();
 
-    return resJson.lines.map((a) => ({ ...a, chaosValue: a.chaosEquivalent }));
+    return resJson.lines.map((a) => ({
+      // ...a,
+      name: a.currencyTypeName,
+      baseType: a.currencyTypeName,
+      detailsId: a.detailsId,
+      chaosValue: a.chaosEquivalent,
+      wiki: `https://pathofexile.fandom.com/wiki/${a.currencyTypeName.replaceAll(
+        " ",
+        "_"
+      )}`,
+      source: null,
+      cannotDrop: false,
+    }));
   }
 
   return [];
@@ -110,8 +122,17 @@ const sortTiersCurrency = (items, minChaos) => {
   }, {});
 };
 
+const fs = require("fs");
+
 const fetchPoeNinja = async (minChaos = 2) => {
   const league = await getLeague();
+
+  // const currency = await fetchCurrency(league);
+  // const sortedCurrency = sortTiersCurrency(currency, minChaos);
+
+  // fs.writeFileSync("currency.json", JSON.stringify(sortedCurrency, null, "  "));
+
+  // return {};
 
   const uniques = await Promise.all(
     POE_NINJA_UNIQUE.map((type) => fetchUnique(type, league))
@@ -150,9 +171,6 @@ const fetchPoeNinja = async (minChaos = 2) => {
     path.resolve(__dirname, "..", "notes", "uniques.json"),
     JSON.stringify(sortedUniques, null, "  ")
   );
-
-  // const currency = await fetchCurrency(league);
-  // const sortedCurrency = sortTiersCurrency(currency, minChaos);
 
   return { uniques: sortedUniques };
 };
